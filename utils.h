@@ -10,7 +10,7 @@ void vectorScale(float* u, int rows, float alpha , float* v);
 
 void vectorDotProduct();
 
-void vectorSubtract();
+void vectorSubtract(const float* u, const float* v, const float* z);
 
 void vectorNorm();
 
