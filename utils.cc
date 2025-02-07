@@ -24,3 +24,5 @@ void vectorScale(float* u, int rows, float alpha , float* v){
   }
 }
 
+
+
