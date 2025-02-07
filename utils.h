@@ -12,7 +12,7 @@ void vectorDotProduct();
 
 void vectorSubtract(const float* u, const float* v, const float* z);
 
-void vectorNorm();
+void vectorNorm(float* u, float* v, float* z, int rows);
 
 #endif
 
