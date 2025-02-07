@@ -27,5 +27,5 @@ void vectorScale(float* u, int rows, float alpha , float* v){
 
 void vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z){
   for(int i = 0; i<rowsU; i++)
-    u[i] - v[i];
+    z[i] = u[i] - v[i];
 }
