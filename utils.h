@@ -8,11 +8,13 @@ void vectorPrint(float* u , int rows);
 
 void vectorScale(float* u, int rows, float alpha , float* v); 
 
-void vectorDotProduct();
+int vectorDotProduct(float* u, float* v, int rowsU, int rowsV);
 
-void vectorSubtract(const float* u, const float* v, const float* z);
+void vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z);
 
-void vectorNorm(float* u, float* v, float* z, int rows);
+void vectorNorm(float* u, int rowsU, float* z);
+
+bool checkRows(int rowsU, int rowsV);
 
 #endif
 
