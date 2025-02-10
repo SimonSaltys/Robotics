@@ -9,7 +9,7 @@
 #include <sstream>
 
 using namespace std;
-
+int SIZE_ERROR = -9999;
 void vectorPrint(float* u , int rows){
   for(int i=0;i<rows;i++){
     printf( "%7.1f \n",u[i]);
@@ -30,7 +30,16 @@ void vectorNorm(float* u, int rowsU, float* z){
     
 }
 
-void vectorDotProduct(float* u, float* v, int rowsU, int rowsV, float* z){ 
+int vectorDotProduct(float* u, float* v, int rowsU, int rowsV, float* z){ 
+int result = 0;
+
+  if(!checkRows(rowsU, rowsV))
+  { return SIZE_ERROR; } // dont change my godamn code
+  
+
+  for(int i = 0; i <= rowsU; i++)
+    result += u[i] * v[i];
+  return result;
   
 }
 
@@ -42,7 +51,18 @@ void vectorScale(float* u, int rows, float alpha , float* v){
 
 
 void vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z){
+
+  if(!checkRows(rowsU, rowsV))
+  { return SIZE_ERROR; }
+  
   for(int i = 0; i<rowsU; i++)
     z[i] = u[i] - v[i];
 }
 
+bool checkRows(int rowsU, int rowsV){
+if (rowsU != rowsV) {
+std::cerr << "Error, Vectors do not match in size!" << std::endl;
+  return false;
+}
+  return true;
+}
