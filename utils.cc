@@ -30,7 +30,7 @@ void vectorNorm(float* u, int rowsU, float* z){
     
 }
 
-int vectorDotProduct(float* u, float* v, int rowsU, int rowsV, float* z){ 
+int vectorDotProduct(float* u, float* v, int rowsU, int rowsV){ 
 int result = 0;
 
   if(!checkRows(rowsU, rowsV))
