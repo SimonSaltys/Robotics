@@ -24,7 +24,7 @@ void vectorPrint(float* u , int rows){
 * @param rowsU The # of rows of the U vector
 * @param rowsV The @ of rows of the V vector
  */
-bool checkRows(int rowsU, int rowsV){ //checks if the # of rows for U and V are ==, if not, returns false
+bool checkRows(int rowsU, int rowsV){ 
   if (rowsU != rowsV) { 
   std::cerr << "Error, Vectors do not match in size!" << std::endl;
     return false;
@@ -39,7 +39,7 @@ bool checkRows(int rowsU, int rowsV){ //checks if the # of rows for U and V are 
 * @param rowsU The # of rows of the U vector
 * @param z Storage vector for post-processed U vector
 */
-void vectorNorm(float* u, int rowsU, float* z){ //normalizes incoming vector to a unit vector
+void vectorNorm(float* u, int rowsU, float* z){ 
   float sum = 0;
   float scalar = 0;
   
@@ -59,7 +59,7 @@ void vectorNorm(float* u, int rowsU, float* z){ //normalizes incoming vector to 
 * @param rowsU The # of rows of the U vector
 * @param rowsV The # of rows of the V vector
 */
-int vectorDotProduct(float* u, float* v, int rowsU, int rowsV){ //combines U with V via dot product
+int vectorDotProduct(float* u, float* v, int rowsU, int rowsV){ 
 int result = 0;
 
   if(!checkRows(rowsU, rowsV))
@@ -87,7 +87,7 @@ void vectorScale(float* u, int rows, float alpha , float* v){
 * @param rowsV The # of rows of the V vector
 * @param z Storage vector for post-processed U and V vector
 */
-int vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z){ //subtracts V from U
+int vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z){ 
 
   if(!checkRows(rowsU, rowsV)) { 
     return SIZE_ERROR; 
