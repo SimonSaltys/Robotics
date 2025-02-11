@@ -19,10 +19,11 @@ void vectorPrint(float* u , int rows){
 }
 
 /*
-* @brief Checks if # of rows for U and V are equal in length, if not, returns false
+* @brief Checks if number of rows for u and v are equal in length.
 *
-* @param rowsU The # of rows of the U vector
-* @param rowsV The @ of rows of the V vector
+* @param rowsU The number of rows of the u vector.
+* @param rowsV The number of rows of the v vector.
+* @return if the two rows are of same length.
  */
 bool checkRows(int rowsU, int rowsV){ 
   if (rowsU != rowsV) { 
@@ -33,11 +34,11 @@ bool checkRows(int rowsU, int rowsV){
   }
 
 /*
-* @brief Takes in vector U, finds it norm
+* @brief Takes in vector u, finds it norm.
 *
-* @param u Vales in the U vector
-* @param rowsU The # of rows of the U vector
-* @return the norm of the vector
+* @param the u vector.
+* @param rowsU the number of rows of the u vector.
+* @return the norm of the vector.
 */
 float vectorNorm(float* u, int rowsU) { 
     float sum = 0.0f;
@@ -47,12 +48,13 @@ float vectorNorm(float* u, int rowsU) {
 }
 
 /*
-* @brief Calculates dot product of vector U and V
+* @brief Calculates dot product of vector u and v
 * 
-* @param u Values in the U vector
-* @param v Values in the V vector
-* @param rowsU The # of rows of the U vector
-* @param rowsV The # of rows of the V vector
+* @param u Values in the u vector
+* @param v Values in the v vector
+* @param rowsU The number of rows of the u vector
+* @param rowsV The number of rows of the v vector
+* @return the dot product or error if rows are not equal
 */
 int vectorDotProduct(float* u, float* v, int rowsU, int rowsV){ 
 int result = 0;
@@ -74,13 +76,13 @@ void vectorScale(float* u, int rows, float alpha , float* v){
 }
 
 /*
-* @brief Subtracts values in vector V from vector U, then stores the result in vector Z
+* @brief Subtracts values in vector v from vector u, then stores the result in vector z
 * 
-* @param u Values in the U vector
-* @param v Values in the V vector
-* @param rowsU The # of rows of the U vector
-* @param rowsV The # of rows of the V vector
-* @param z Storage vector for post-processed U and V vector
+* @param u Values in the u vector
+* @param v Values in the v vector
+* @param rowsU The number of rows of the u vector
+* @param rowsV The number of rows of the v vector
+* @param z Storage vector for post-processed u and v vector
 */
 int vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z){ 
 
