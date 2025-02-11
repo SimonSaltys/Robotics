@@ -33,22 +33,17 @@ bool checkRows(int rowsU, int rowsV){
   }
 
 /*
-* @brief Takes in vector U, normalizes to a unit vector, then stores in vector Z
+* @brief Takes in vector U, finds it norm
 *
 * @param u Vales in the U vector
 * @param rowsU The # of rows of the U vector
-* @param z Storage vector for post-processed U vector
+* @return the norm of the vector
 */
-void vectorNorm(float* u, int rowsU, float* z){ 
-  float sum = 0;
-  float scalar = 0;
-  
-  for (int i = 0; i < rowsU; i++)
-    sum += pow(u[i], 2);
-  scalar = sqrt(sum);
-  for (int j = 0; j<=rowsU; j++)
-    z[j] = (u[j] / scalar);
-    
+float vectorNorm(float* u, int rowsU) { 
+    float sum = 0.0f;
+    for (int i = 0; i < rowsU; i++)
+        sum += u[i] * u[i];  
+    return sqrt(sum);
 }
 
 /*
