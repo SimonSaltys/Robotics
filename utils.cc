@@ -18,12 +18,20 @@ void vectorPrint(float* u , int rows){
 
 }
 
+bool checkRows(int rowsU, int rowsV){
+  if (rowsU != rowsV) {
+  std::cerr << "Error, Vectors do not match in size!" << std::endl;
+    return false;
+  }
+    return true;
+  }
+
 void vectorNorm(float* u, int rowsU, float* z){
   float sum = 0;
   float scalar = 0;
   
-  for (int i = 0; i <= rowsU; i++)
-    sum += pow(u[i]);
+  for (int i = 0; i < rowsU; i++)
+    sum += pow(u[i], 2);
   scalar = sqrt(sum);
   for (int j = 0; j<=rowsU; j++)
     z[j] = (u[j] / scalar);
@@ -37,32 +45,26 @@ int result = 0;
   { return SIZE_ERROR; } // dont change my godamn code
   
 
-  for(int i = 0; i <= rowsU; i++)
+  for(int i = 0; i < rowsU; i++)
     result += u[i] * v[i];
   return result;
   
 }
 
 void vectorScale(float* u, int rows, float alpha , float* v){
-  for(int i=0; i<rows; i++){
+  for(int i=0; i < rows; i++){
     v[i]=alpha*u[i];
   }
 }
 
 
-void vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z){
+int vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z){
 
-  if(!checkRows(rowsU, rowsV))
-  { return SIZE_ERROR; }
+  if(!checkRows(rowsU, rowsV)) { 
+    return SIZE_ERROR; 
+  }
   
-  for(int i = 0; i<rowsU; i++)
+  for(int i = 0; i < rowsU; i++)
     z[i] = u[i] - v[i];
-}
-
-bool checkRows(int rowsU, int rowsV){
-if (rowsU != rowsV) {
-std::cerr << "Error, Vectors do not match in size!" << std::endl;
-  return false;
-}
-  return true;
+  return 0;
 }
