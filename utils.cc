@@ -18,15 +18,28 @@ void vectorPrint(float* u , int rows){
 
 }
 
-bool checkRows(int rowsU, int rowsV){
-  if (rowsU != rowsV) {
+/*
+* @brief Checks if # of rows for U and V are equal in length, if not, returns false
+*
+* @param rowsU The # of rows of the U vector
+* @param rowsV The @ of rows of the V vector
+ */
+bool checkRows(int rowsU, int rowsV){ //checks if the # of rows for U and V are ==, if not, returns false
+  if (rowsU != rowsV) { 
   std::cerr << "Error, Vectors do not match in size!" << std::endl;
     return false;
   }
     return true;
   }
 
-void vectorNorm(float* u, int rowsU, float* z){
+/*
+* @brief Takes in vector U, normalizes to a unit vector, then stores in vector Z
+*
+* @param u Vales in the U vector
+* @param rowsU The # of rows of the U vector
+* @param z Storage vector for post-processed U vector
+*/
+void vectorNorm(float* u, int rowsU, float* z){ //normalizes incoming vector to a unit vector
   float sum = 0;
   float scalar = 0;
   
@@ -38,7 +51,15 @@ void vectorNorm(float* u, int rowsU, float* z){
     
 }
 
-int vectorDotProduct(float* u, float* v, int rowsU, int rowsV){ 
+/*
+* @brief Calculates dot product of vector U and V
+* 
+* @param u Values in the U vector
+* @param v Values in the V vector
+* @param rowsU The # of rows of the U vector
+* @param rowsV The # of rows of the V vector
+*/
+int vectorDotProduct(float* u, float* v, int rowsU, int rowsV){ //combines U with V via dot product
 int result = 0;
 
   if(!checkRows(rowsU, rowsV))
@@ -57,8 +78,16 @@ void vectorScale(float* u, int rows, float alpha , float* v){
   }
 }
 
-
-int vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z){
+/*
+* @brief Subtracts values in vector V from vector U, then stores the result in vector Z
+* 
+* @param u Values in the U vector
+* @param v Values in the V vector
+* @param rowsU The # of rows of the U vector
+* @param rowsV The # of rows of the V vector
+* @param z Storage vector for post-processed U and V vector
+*/
+int vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z){ //subtracts V from U
 
   if(!checkRows(rowsU, rowsV)) { 
     return SIZE_ERROR; 
