@@ -126,8 +126,8 @@ void testVectorSubtract() {
  *
  * This function takes a vector (represented as an array of floats), its size,
  * and an output vector. It calculates the norm (magnitude) of the input vector,
- * and then normalizes the vector (divides each element by the norm), storing
- * the result in the output vector.
+ * and stores the result in the output vector.
+ * 
  *
  * @param u The input vector (array of floats).
  * @param size The size of the vector.
