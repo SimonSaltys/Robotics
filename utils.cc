@@ -36,7 +36,7 @@ bool checkRows(int rowsU, int rowsV){
 /*
 * @brief Takes in vector u, finds it norm.
 *
-* @param the u vector.
+* @param u vector.
 * @param rowsU the number of rows of the u vector.
 * @return the norm of the vector.
 */

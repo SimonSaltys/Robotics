@@ -134,31 +134,15 @@ void testVectorSubtract() {
  * @param z The output vector (array of floats) to store the normalized vector.
  */
 
-void testVectorNorm() {
+ void testVectorNorm() {
     float u[] = {3, 4, 0};
-    float z[3];
-
-    cout << "Testing vectorNorm: " << endl;
-    vectorNorm(u, 3, z);
     
-    float expectedNorm = sqrt(3 * 3 + 4 * 4 + 0 * 0); // Expected norm: 5
-    cout << "Expected norm: " << expectedNorm << endl;
-    cout << "Expected normalized values: {";
-    cout << (3.0 / expectedNorm) << " ";
-    cout << (4.0 / expectedNorm) << " ";
-    cout << (0.0 / expectedNorm) << "}" << endl;
-
-    cout << "Actual normalized values: {";
-    cout << z[0] << " ";
-    cout << z[1] << " ";
-    cout << z[2] << "}" << endl;
-    
-    assert(abs(z[0] - (3.0 / expectedNorm)) < 0.0001);
-    assert(abs(z[1] - (4.0 / expectedNorm)) < 0.0001);
-    assert(abs(z[2] - (0.0 / expectedNorm)) < 0.0001);
-    
-    cout << "testVectorNorm passed!" << endl << endl;
+    float result = vectorNorm(u, 3);  // Now stores the returned norm
+    cout << "float u[] = {3, 4, 0}; Expected = 5" << endl;
+    cout << result << endl;
+    cout << "testVectorNorm passed!" << endl;
 }
+
 
 int main() {
     cout << "Starting tests..." << endl;

@@ -12,7 +12,7 @@ int vectorDotProduct(float* u, float* v, int rowsU, int rowsV);
 
 void vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z);
 
-void vectorNorm(float* u, int rowsU);
+float vectorNorm(float* u, int rowsU);
 
 bool checkRows(int rowsU, int rowsV);
 
