@@ -12,12 +12,27 @@
 
 using namespace std;
 
+// included with the base file.
 void testVectorPrint() {
     float u[] = {1, 2, 3};
     cout << "Testing vectorPrint: " << endl;
     vectorPrint(u, 3); 
     cout << "Printed the vector u[]: {1, 2, 3}" << endl << endl;
 }
+
+/**
+ * @brief Scales a vector by a scalar value.
+ *
+ * This function takes a vector (represented as an array of floats), its size,
+ * a scalar value, and an output vector. It multiplies each element
+ * of the input vector by alpha and stores the result in the corresponding
+ * element of the output vector.
+ *
+ * @param u The input vector (array of floats).
+ * @param size The size of the vector.
+ * @param alpha The scalar value to scale the vector by.
+ * @param v The output vector (array of floats) to store the scaled vector.
+ */
 
 void testVectorScale() {
     float u[] = {1, 2, 3};
@@ -38,6 +53,20 @@ void testVectorScale() {
     cout << "testVectorScale passed!" << endl << endl;
 }
 
+
+/**
+ * @brief Calculates the dot product of two vectors.
+ *
+ * This function takes two vectors (represented as arrays of floats), their
+ * sizes, and calculates the dot product.
+ *
+ * @param u The first vector (array of floats).
+ * @param v The second vector (array of floats).
+ * @param size_u The size of the first vector.
+ * @param size_v The size of the second vector.
+ * @return int The dot product of the two vectors.
+ */
+
 void testVectorDotProduct() {
     float u[] = {1, 2, 3};
     float v[] = {4, 5, 6};
@@ -54,6 +83,21 @@ void testVectorDotProduct() {
     
     cout << "testVectorDotProduct passed!" << endl << endl;
 }
+
+/**
+ * @brief Subtracts one vector from another.
+ *
+ * This function takes two vectors (represented as arrays of floats), their
+ * sizes, and an output vector. It subtracts the second vector from the first
+ * and stores the result in the output vector.
+ *
+ * @param u The first vector (array of floats).
+ * @param size_u The size of the first vector.
+ * @param v The second vector (array of floats) to subtract.
+ * @param size_v The size of the second vector.
+ * @param z The output vector (array of floats) to store the result.
+ */
+
 
 void testVectorSubtract() {
     float u[] = {5, 10, 15};
@@ -76,6 +120,19 @@ void testVectorSubtract() {
     
     cout << "testVectorSubtract passed!" << endl << endl;
 }
+
+/**
+ * @brief Normalizes a vector.
+ *
+ * This function takes a vector (represented as an array of floats), its size,
+ * and an output vector. It calculates the norm (magnitude) of the input vector,
+ * and then normalizes the vector (divides each element by the norm), storing
+ * the result in the output vector.
+ *
+ * @param u The input vector (array of floats).
+ * @param size The size of the vector.
+ * @param z The output vector (array of floats) to store the normalized vector.
+ */
 
 void testVectorNorm() {
     float u[] = {3, 4, 0};
