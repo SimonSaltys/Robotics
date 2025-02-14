@@ -24,6 +24,10 @@ void matrixPrint(float* matrix, int rows, int cols) {
     printf("\n");
 }
 
+void matrixQR(float* a, int rows, int cols, float* q, float* r) {
+
+}
+
 void matrixProduct(float* a, int rows_a, int cols_a, float* b, int rows_b, int cols_b, float* c){
  int index = 0;
  int rows  = rows_a;
