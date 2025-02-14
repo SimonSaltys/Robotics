@@ -25,7 +25,24 @@ void matrixPrint(float* matrix, int rows, int cols) {
 }
 
 void matrixQR(float* a, int rows, int cols, float* q, float* r) {
+    float numeratorTemp[rows];
 
+    for(int i = 0; i <= cols; i++) {
+      float aTemp[rows];
+      
+
+      matrixExtractCol(a,rows, cols, i, aTemp);
+
+      for(int j = 0; j <= rows; j++) {
+        float numeratorUpdated[rows];
+
+        vectorSubtract(aTemp, rows, numeratorTemp, rows, numeratorUpdated);
+
+      }
+    }
+     
+        
+      
 }
 
 void matrixProduct(float* a, int rows_a, int cols_a, float* b, int rows_b, int cols_b, float* c){
