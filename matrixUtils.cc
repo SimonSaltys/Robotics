@@ -24,30 +24,41 @@ void matrixPrint(float* matrix, int rows, int cols) {
     printf("\n");
 }
 
+
 void matrixQR(float* a, int rows, int cols, float* q, float* r) { //function needs to be finished (implement orthogonalization & normalization)
-    float numeratorTemp[rows];
-    float dotProduct;
-    float norm;
-    float aTemp[rows];
-    float qTemp[rows];
-	
-    for(int i = 0; i <= cols; i++) {
+  float numeratorTemp[rows];
+  float dotProduct;
+  float norm;
+  float aTemp[rows];
+  float qTemp[rows];
 
-      matrixExtractCol(a,rows, cols, i, aTemp);
+ 
+  for(int i = 0; i < cols; i++) {
 
-      for(int j = 0; j <= rows; j++) {
-        float numeratorTemp[j] = aTemp[j];
-	dotProduct = vectorDotProduct(aTemp, qTemp, rows, rows);
-	vectorScale(dotProduct)
-	
+    matrixExtractCol(a,rows, cols, i, aTemp);
 
-        vectorSubtract(aTemp, rows, numeratorTemp, rows, numeratorUpdated);
+    for(int j = 0; j < rows; j++) {
+      numeratorTemp[j] = aTemp[j];
+    }
+
+    for(int j = 0; j < i; j++) {
+      matrixExtractCol(q,rows,cols,j,qTemp);
+
+      dotProduct = vectorDotProduct(aTemp, qTemp, rows, rows);
+      vectorScale(qTemp,rows,dotProduct,numeratorTemp);
+      vectorSubtract(aTemp,rows,numeratorTemp,rows,qTemp);
+      vectorNorm(qTemp,rows);
+
+      for(int k = 0; k < rows; k++) {
+
+        q[j] = qTemp[k];
 
       }
     }
-     
-        
+  }
+   
       
+    
 }
 
 void matrixProduct(float* a, int rows_a, int cols_a, float* b, int rows_b, int cols_b, float* c){
