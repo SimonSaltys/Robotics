@@ -24,17 +24,22 @@ void matrixPrint(float* matrix, int rows, int cols) {
     printf("\n");
 }
 
-void matrixQR(float* a, int rows, int cols, float* q, float* r) {
+void matrixQR(float* a, int rows, int cols, float* q, float* r) { //function needs to be finished (implement orthogonalization & normalization)
     float numeratorTemp[rows];
-
+    float dotProduct;
+    float norm;
+    float aTemp[rows];
+    float qTemp[rows];
+	
     for(int i = 0; i <= cols; i++) {
-      float aTemp[rows];
-      
 
       matrixExtractCol(a,rows, cols, i, aTemp);
 
       for(int j = 0; j <= rows; j++) {
-        float numeratorUpdated[rows];
+        float numeratorTemp[j] = aTemp[j];
+	dotProduct = vectorDotProduct(aTemp, qTemp, rows, rows);
+	vectorScale(dotProduct)
+	
 
         vectorSubtract(aTemp, rows, numeratorTemp, rows, numeratorUpdated);
 
