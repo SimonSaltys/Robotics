@@ -68,17 +68,20 @@ void matrixQR(float* a, int rows, int cols, float* q, float* r) { //function nee
     }
     // Setting R matrix
     for (int currRow = 0; currRow < rows; currRow++)
-      for (int currCol = 0; currCol < cols< currCol++){
+      for (int currCol = 0; currCol < cols; currCol++) {
         r[currRow*cols+currCol] = 0.0;
     }
-    for(int currCol = 0; currCol < cols; currCol++)
-      matrixExtractCol(a, rows, cols, currCol, aColumn);
-      for(int rows=0; currCow < rows; currRow++)
-        if (row <=col){
-          matrixExtractCol(q, rows, cols, currCol, qcolumns);
-          r[currRow*cols+currCol] = vectorDotProduct(qcolumn, rows, acolumn, rows);
 
-      })
+    for(int currCol = 0; currCol < cols; currCol++) {
+      matrixExtractCol(a, rows, cols, currCol, aTemp);
+      for(int currRow=0; currRow < rows; currRow++)
+
+        if (currRow <= currCol){
+          matrixExtractCol(q, rows, cols, currCol, qTemp);
+          r[currRow*cols+currCol] = vectorDotProduct(qTemp, aTemp, rows, rows);
+      }
+    }
+      
   }
 
 void matrixProduct(float* a, int rows_a, int cols_a, float* b, int rows_b, int cols_b, float* c){
