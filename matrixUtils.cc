@@ -39,7 +39,7 @@ void matrixQR(float* a, int rows, int cols, float* q, float* r) { //function nee
     matrixExtractCol(a,rows, cols, j, aTemp);
 
     for(int row = 0; row < rows; row++) {
-      numeratorTemp[j] = aTemp[j];
+      numeratorTemp[row] = aTemp[row];
     }
 
     for(int k = 0; k < j; k++) {
@@ -66,6 +66,19 @@ void matrixQR(float* a, int rows, int cols, float* q, float* r) { //function nee
       
 
     }
+    // Setting R matrix
+    for (int currRow = 0; currRow < rows; currRow++)
+      for (int currCol = 0; currCol < cols< currCol++){
+        r[currRow*cols+currCol] = 0.0;
+    }
+    for(int currCol = 0; currCol < cols; currCol++)
+      matrixExtractCol(a, rows, cols, currCol, aColumn);
+      for(int rows=0; currCow < rows; currRow++)
+        if (row <=col){
+          matrixExtractCol(q, rows, cols, currCol, qcolumns);
+          r[currRow*cols+currCol] = vectorDotProduct(qcolumn, rows, acolumn, rows);
+
+      })
   }
 
 void matrixProduct(float* a, int rows_a, int cols_a, float* b, int rows_b, int cols_b, float* c){
@@ -203,7 +216,4 @@ k[2*cols_k +2] = 1.0;
 // off diagonals of the calibration matrix
 k[0*cols_k +2] = -r[0*cols_r +2]/r[0*cols_r+0];
 k[1*cols_k +2] = -r[1*cols_r +2]/r[1*cols_r+1];
-
-
-
 }
