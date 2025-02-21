@@ -27,8 +27,8 @@ void matrixPrint(float* matrix, int rows, int cols) {
 void matrixExtractCol(float*a, int rows, int cols, int col, float* column){
   int index;
   for(int row=0;row<rows;row++){
-index = col + row*cols;
-      column[row] = a[index];
+    index = col + row*cols;
+    column[row] = a[index];
   }
 }
 
@@ -50,12 +50,14 @@ void matrixQR(float* a, int rows, int cols, float* q, float* r) { //function nee
       numeratorTemp[row] = aTemp[row];
     }
 
+    //first loop is fine, until we start appending to numeratorTemp
     for(int k = 0; k < j; k++) {
-      matrixExtractCol(q,rows,cols,k,qTemp);
+        matrixExtractCol(q,rows,cols,k,qTemp);
 
-      dotProduct = vectorDotProduct(aTemp, qTemp, rows, rows);
-      vectorScale(qTemp,rows,dotProduct,projection);
-      vectorSubtract(numeratorTemp,rows,projection,rows,numeratorTemp);
+        dotProduct = vectorDotProduct(qTemp, aTemp, rows, rows);
+      
+        vectorScale(qTemp,rows,dotProduct,projection);
+        vectorSubtract(numeratorTemp,rows,projection,rows,numeratorTemp);
       }
 
       norm = vectorNorm(numeratorTemp,rows);

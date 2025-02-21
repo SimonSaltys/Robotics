@@ -9,7 +9,7 @@
 #include <sstream>
 
 using namespace std;
-int SIZE_ERROR = -9999;
+
 void vectorPrint(float* u , int rows){
   for(int i=0;i<rows;i++){
     printf( "%7.1f \n",u[i]);
@@ -56,17 +56,19 @@ float vectorNorm(float* u, int rowsU) {
 * @param rowsV The number of rows of the v vector
 * @return the dot product or error if rows are not equal
 */
-int vectorDotProduct(float* u, float* v, int rowsU, int rowsV){ 
-int result = 0;
+float vectorDotProduct(float* u, float* v, int rowsU, int rowsV){ 
+  float result = 0.0;
 
-  if(!checkRows(rowsU, rowsV))
-  { return SIZE_ERROR; } // dont change my godamn code
-  
-
-  for(int i = 0; i < rowsU; i++)
+  if(rowsU == rowsV) {
+    for(int i = 0; i < rowsU; i++)
     result += u[i] * v[i];
-  return result;
   
+  } else {
+      printf("vectors must be same length");
+      exit(0);
+  }
+  
+  return result;
 }
 
 void vectorScale(float* u, int rows, float alpha , float* v){
@@ -84,13 +86,14 @@ void vectorScale(float* u, int rows, float alpha , float* v){
 * @param rowsV The number of rows of the v vector
 * @param z Storage vector for post-processed u and v vector
 */
-int vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z){ 
-
-  if(!checkRows(rowsU, rowsV)) { 
-    return SIZE_ERROR; 
-  }
+void vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z){ 
   
-  for(int i = 0; i < rowsU; i++)
+  if(rowsU == rowsV) {
+    for(int i = 0; i < rowsU; i++)
     z[i] = u[i] - v[i];
-  return 0;
+  } else {
+      printf("vectors must be same length.");
+      exit(0);
+  }
+
 }
