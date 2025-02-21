@@ -24,6 +24,14 @@ void matrixPrint(float* matrix, int rows, int cols) {
     printf("\n");
 }
 
+void matrixExtractCol(float*a, int rows, int cols, int col, float* column){
+  int index;
+  for(int row=0;row<rows;row++){
+index = col + row*cols;
+      column[row] = a[index];
+  }
+}
+
 
 void matrixQR(float* a, int rows, int cols, float* q, float* r) { //function needs to be finished (implement orthogonalization & normalization)
   float numeratorTemp[rows];
@@ -133,13 +141,7 @@ void matrixTranspose(float* a, int rows, int cols, float* aTranspose){
  }
 }
 
-void matrixExtractCol(float*a, int rows, int cols, int col, float* column){
-    int index;
-    for(int row=0;row<rows;row++){
-	index = col + row*cols;
-        column[row] = a[index];
-    }
-}
+
 
 
 void matrixBackSubstitution(float* R, int rows, int cols, float* d, float* p){

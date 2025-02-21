@@ -5,13 +5,13 @@ CC = g++
 CFLAGS = -Wall 
 
 # Source files
-SRCS = utilsTest.cc utils.cc 
+SRCS = matrixTest.cc matrixUtils.cc utils.cc
 
 # Object files (replace .cc with .o)
 OBJS = $(SRCS:.cc=.o)
 
 # Output executable
-TARGET = utilsTest
+TARGET = matrixQRTest
 
 # Rule to build the final executable
 $(TARGET): $(OBJS)

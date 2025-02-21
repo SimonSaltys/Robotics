@@ -8,7 +8,7 @@
 #include <string>
 #include <sstream>
 #include <cassert>
-#include <matrixUtils.h>
+#include "matrixUtils.h"
 #include "utils.h"
 
 using namespace std;
