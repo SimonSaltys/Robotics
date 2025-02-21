@@ -28,38 +28,45 @@ void matrixPrint(float* matrix, int rows, int cols) {
 void matrixQR(float* a, int rows, int cols, float* q, float* r) { //function needs to be finished (implement orthogonalization & normalization)
   float numeratorTemp[rows];
   float dotProduct;
+  float projection[rows];
   float norm;
   float aTemp[rows];
   float qTemp[rows];
 
  
-  for(int i = 0; i < cols; i++) {
+  for(int j = 0; j < cols; j++) {
 
-    matrixExtractCol(a,rows, cols, i, aTemp);
+    matrixExtractCol(a,rows, cols, j, aTemp);
 
-    for(int j = 0; j < rows; j++) {
+    for(int row = 0; row < rows; row++) {
       numeratorTemp[j] = aTemp[j];
     }
 
-    for(int j = 0; j < i; j++) {
-      matrixExtractCol(q,rows,cols,j,qTemp);
+    for(int k = 0; k < j; k++) {
+      matrixExtractCol(q,rows,cols,k,qTemp);
 
       dotProduct = vectorDotProduct(aTemp, qTemp, rows, rows);
-      vectorScale(qTemp,rows,dotProduct,numeratorTemp);
-      vectorSubtract(aTemp,rows,numeratorTemp,rows,qTemp);
-      vectorNorm(qTemp,rows);
-
-      for(int k = 0; k < rows; k++) {
-
-        q[j] = qTemp[k];
-
+      vectorScale(qTemp,rows,dotProduct,projection);
+      vectorSubtract(numeratorTemp,rows,projection,rows,numeratorTemp);
       }
+
+      norm = vectorNorm(numeratorTemp,rows);
+
+      if (norm > 0) {
+
+        vectorScale(numeratorTemp,rows,1/norm,numeratorTemp);
+        
+        for(int row=0; row<rows; row++)
+          q[j+row*cols] = numeratorTemp[row];
+
+      } else {
+        printf("Error");
+        exit(0);
+      }
+      
+
     }
   }
-   
-      
-    
-}
 
 void matrixProduct(float* a, int rows_a, int cols_a, float* b, int rows_b, int cols_b, float* c){
  int index = 0;
