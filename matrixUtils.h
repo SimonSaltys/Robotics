@@ -3,22 +3,22 @@
 using namespace std;
 
 
-void matrixPrint(float* matrix, int rows, int cols);
+void matrixPrint(double* matrix, int rows, int cols);
 
-void matrixProduct(float* a, int rows_a, int cols_a, float* b, int rows_b, int cols_b, float* c);
+void matrixProduct(double* a, int rows_a, int cols_a, double* b, int rows_b, int cols_b, double* c);
 
-void matrixTimesVector(float* a, int rows, int cols, float* v, int rows_v, float*w);
+void matrixTimesVector(double* a, int rows, int cols, double* v, int rows_v, double*w);
 
-void matrixTranspose(float* a, int rows, int cols, float* aTranspose);
+void matrixTranspose(double* a, int rows, int cols, double* aTranspose);
 
-void matrixExtractCol(float*a, int rows, int cols, int col, float* column);
+void matrixExtractCol(double*a, int rows, int cols, int col, double* column);
 
-void matrixBackSubstitution(float* R, int rows, int cols, float* d, float* p);
+void matrixBackSubstitution(double* R, int rows, int cols, double* d, double* p);
 
-void matrixUpperTriangularInverse(float* A, int rows, int cols, float* invA);
+void matrixUpperTriangularInverse(double* A, int rows, int cols, double* invA);
 
-void matrixInternalCameraParameters(float* p,int rows,int cols,float* k);
+void matrixInternalCameraParameters(double* p,int rows,int cols,double* k);
 
-void matrixQR(float* a, int rows, int cols, float* q, float*r);
+void matrixQR(double* a, int rows, int cols, double* q, double*r);
 
 #endif

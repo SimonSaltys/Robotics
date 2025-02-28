@@ -14,7 +14,7 @@ using namespace std;
 
 // included with the base file.
 void testVectorPrint() {
-    float u[] = {1, 2, 3};
+    double u[] = {1, 2, 3};
     cout << "Testing vectorPrint: " << endl;
     vectorPrint(u, 3); 
     cout << "Printed the vector u[]: {1, 2, 3}" << endl << endl;
@@ -23,20 +23,20 @@ void testVectorPrint() {
 /**
  * @brief Scales a vector by a scalar value.
  *
- * This function takes a vector (represented as an array of floats), its size,
+ * This function takes a vector (represented as an array of doubles), its size,
  * a scalar value, and an output vector. It multiplies each element
  * of the input vector by alpha and stores the result in the corresponding
  * element of the output vector.
  *
- * @param u The input vector (array of floats).
+ * @param u The input vector (array of doubles).
  * @param size The size of the vector.
  * @param alpha The scalar value to scale the vector by.
- * @param v The output vector (array of floats) to store the scaled vector.
+ * @param v The output vector (array of doubles) to store the scaled vector.
  */
 
 void testVectorScale() {
-    float u[] = {1, 2, 3};
-    float v[3];
+    double u[] = {1, 2, 3};
+    double v[3];
     cout << "Testing vectorScale with vector {1, 2, 3} with alpha = 2.0: " << endl;
     vectorScale(u, 3, 2.0, v);
     
@@ -57,19 +57,19 @@ void testVectorScale() {
 /**
  * @brief Calculates the dot product of two vectors.
  *
- * This function takes two vectors (represented as arrays of floats), their
+ * This function takes two vectors (represented as arrays of doubles), their
  * sizes, and calculates the dot product.
  *
- * @param u The first vector (array of floats).
- * @param v The second vector (array of floats).
+ * @param u The first vector (array of doubles).
+ * @param v The second vector (array of doubles).
  * @param size_u The size of the first vector.
  * @param size_v The size of the second vector.
  * @return int The dot product of the two vectors.
  */
 
 void testVectorDotProduct() {
-    float u[] = {1, 2, 3};
-    float v[] = {4, 5, 6};
+    double u[] = {1, 2, 3};
+    double v[] = {4, 5, 6};
     
     cout << "Testing vectorDotProduct: " << endl;
     cout << "u[] = {1, 2, 3}, v[] = {4, 5, 6}" << endl;
@@ -87,22 +87,22 @@ void testVectorDotProduct() {
 /**
  * @brief Subtracts one vector from another.
  *
- * This function takes two vectors (represented as arrays of floats), their
+ * This function takes two vectors (represented as arrays of doubles), their
  * sizes, and an output vector. It subtracts the second vector from the first
  * and stores the result in the output vector.
  *
- * @param u The first vector (array of floats).
+ * @param u The first vector (array of doubles).
  * @param size_u The size of the first vector.
- * @param v The second vector (array of floats) to subtract.
+ * @param v The second vector (array of doubles) to subtract.
  * @param size_v The size of the second vector.
- * @param z The output vector (array of floats) to store the result.
+ * @param z The output vector (array of doubles) to store the result.
  */
 
 
 void testVectorSubtract() {
-    float u[] = {5, 10, 15};
-    float v[] = {3, 6, 9};
-    float z[3];
+    double u[] = {5, 10, 15};
+    double v[] = {3, 6, 9};
+    double z[3];
 
     cout << "Testing vectorSubtract: " << endl;
     cout << "u[] = {5, 10, 15} v[] = {3, 6, 9}" << endl;
@@ -124,21 +124,21 @@ void testVectorSubtract() {
 /**
  * @brief Normalizes a vector.
  *
- * This function takes a vector (represented as an array of floats), its size,
+ * This function takes a vector (represented as an array of doubles), its size,
  * and an output vector. It calculates the norm (magnitude) of the input vector,
  * and stores the result in the output vector.
  * 
  *
- * @param u The input vector (array of floats).
+ * @param u The input vector (array of doubles).
  * @param size The size of the vector.
- * @param z The output vector (array of floats) to store the normalized vector.
+ * @param z The output vector (array of doubles) to store the normalized vector.
  */
 
  void testVectorNorm() {
-    float u[] = {3, 4, 0};
+    double u[] = {3, 4, 0};
     
-    float result = vectorNorm(u, 3);  // Now stores the returned norm
-    cout << "float u[] = {3, 4, 0}; Expected = 5" << endl;
+    double result = vectorNorm(u, 3);  // Now stores the returned norm
+    cout << "double u[] = {3, 4, 0}; Expected = 5" << endl;
     cout << result << endl;
     cout << "testVectorNorm passed!" << endl;
 }

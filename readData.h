@@ -8,5 +8,5 @@
 #include <string>
 #include <sstream>
 using namespace std;
-void readData (string fileName, float u[],float v[],float x[] , float y[], float z[], float zc[]);
+void readData (string fileName, double u[],double v[],double x[] , double y[], double z[], double zc[]);
 

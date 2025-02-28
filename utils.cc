@@ -10,7 +10,7 @@
 
 using namespace std;
 
-void vectorPrint(float* u , int rows){
+void vectorPrint(double* u , int rows){
   for(int i=0;i<rows;i++){
     printf( "%7.1f \n",u[i]);
   }
@@ -40,8 +40,8 @@ bool checkRows(int rowsU, int rowsV){
 * @param rowsU the number of rows of the u vector.
 * @return the norm of the vector.
 */
-float vectorNorm(float* u, int rowsU) { 
-    float sum = 0.0f;
+double vectorNorm(double* u, int rowsU) { 
+    double sum = 0.0f;
     for (int i = 0; i < rowsU; i++)
         sum += u[i] * u[i];  
     return sqrt(sum);
@@ -56,8 +56,8 @@ float vectorNorm(float* u, int rowsU) {
 * @param rowsV The number of rows of the v vector
 * @return the dot product or error if rows are not equal
 */
-float vectorDotProduct(float* u, float* v, int rowsU, int rowsV){ 
-  float result = 0.0;
+double vectorDotProduct(double* u, double* v, int rowsU, int rowsV){ 
+  double result = 0.0;
 
   if(rowsU == rowsV) {
     for(int i = 0; i < rowsU; i++)
@@ -71,7 +71,7 @@ float vectorDotProduct(float* u, float* v, int rowsU, int rowsV){
   return result;
 }
 
-void vectorScale(float* u, int rows, float alpha , float* v){
+void vectorScale(double* u, int rows, double alpha , double* v){
   for(int i=0; i < rows; i++){
     v[i]=alpha*u[i];
   }
@@ -86,7 +86,7 @@ void vectorScale(float* u, int rows, float alpha , float* v){
 * @param rowsV The number of rows of the v vector
 * @param z Storage vector for post-processed u and v vector
 */
-void vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z){ 
+void vectorSubtract(double* u, int rowsU, double* v, int rowsV, double* z){ 
   
   if(rowsU == rowsV) {
     for(int i = 0; i < rowsU; i++)

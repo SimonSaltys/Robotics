@@ -42,12 +42,12 @@ if(numPoints<12){
 }
 
 //define input vectors
-float   u[numPoints];
-float   v[numPoints];
-float   x[numPoints];
-float   y[numPoints];
-float   z[numPoints];
-float  zc[numPoints];
+double   u[numPoints];
+double   v[numPoints];
+double   x[numPoints];
+double   y[numPoints];
+double   z[numPoints];
+double  zc[numPoints];
 
 //read calibration data
 readData(inputFile, u, v, x ,y, z, zc);
@@ -58,18 +58,18 @@ readData(inputFile, u, v, x ,y, z, zc);
 const int rows= 3*numPoints;
 const int cols = 12;
 
-float   m[rows*cols]={0.0};
-float   mTranspose[cols*rows];
-float   a[cols*cols];
-float   c[rows];
-float   b[cols];
-float   d[cols];
-float   q[cols*cols];
-float   qT[cols*cols];
-float   r[cols*cols];
-float   p[cols];
-float   k[9] = {0.0};
-float   test[cols*cols];
+double   m[rows*cols];
+double   mTranspose[cols*rows];
+double   a[cols*cols];
+double   c[rows];
+double   b[cols];
+double   d[cols];
+double   q[cols*cols];
+double   qT[cols*cols];
+double   r[cols*cols];
+double   p[cols];
+double   k[9] = {0.0};
+double   test[cols*cols];
 
 // initialize the M matrix 
 int row=0;
@@ -112,14 +112,23 @@ matrixPrint(m,rows,cols);
 
 printf("c right hand side vector \n");
 vectorPrint(c,rows);
+cout << "First Transpose" << endl;
 
+double backM[rows*cols];
 //compute m transpose mT
 matrixTranspose(m,rows,cols,mTranspose);
+// cout << "Second Transpose" << endl;
+// matrixTranspose(mTranspose, cols, rows, backM);
+// matrixPrint(backM,rows, cols);
+
+
+
 
 // compute matrix a = mT*m
 matrixProduct(mTranspose,cols,rows,m,rows,cols,a);
 printf("Matrix A \n");
 matrixPrint(a,cols,cols);
+exit(0);
 
 // compute QR decomposition of matrix A
 matrixQR(a,cols,cols,q,r);

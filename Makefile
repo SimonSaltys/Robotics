@@ -5,13 +5,13 @@ CC = g++
 CFLAGS = -Wall 
 
 # Source files
-SRCS = matrixTest.cc matrixUtils.cc utils.cc
+SRCS = calib.cc matrixUtils.cc utils.cc readParams.cc readData.cc
 
 # Object files (replace .cc with .o)
 OBJS = $(SRCS:.cc=.o)
 
 # Output executable
-TARGET = matrixQRTest
+TARGET = calibarate
 
 # Rule to build the final executable
 $(TARGET): $(OBJS)

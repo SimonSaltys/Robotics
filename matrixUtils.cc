@@ -11,7 +11,7 @@
 
 using namespace std;
 
-void matrixPrint(float* matrix, int rows, int cols) {
+void matrixPrint(double* matrix, int rows, int cols) {
     printf("number of rows and cols,%d %d \n", rows, cols);
     for (int row = 0; row < rows; row++) {
 
@@ -24,7 +24,7 @@ void matrixPrint(float* matrix, int rows, int cols) {
     printf("\n");
 }
 
-void matrixExtractCol(float*a, int rows, int cols, int col, float* column){
+void matrixExtractCol(double*a, int rows, int cols, int col, double* column){
   int index;
   for(int row=0;row<rows;row++){
     index = col + row*cols;
@@ -33,13 +33,13 @@ void matrixExtractCol(float*a, int rows, int cols, int col, float* column){
 }
 
 
-void matrixQR(float* a, int rows, int cols, float* q, float* r) { //function needs to be finished (implement orthogonalization & normalization)
-  float numeratorTemp[rows];
-  float dotProduct;
-  float projection[rows];
-  float norm;
-  float aTemp[rows];
-  float qTemp[rows];
+void matrixQR(double* a, int rows, int cols, double* q, double* r) { //function needs to be finished (implement orthogonalization & normalization)
+  double numeratorTemp[rows];
+  double dotProduct;
+  double projection[rows];
+  double norm;
+  double aTemp[rows];
+  double qTemp[rows];
 
  
   for(int j = 0; j < cols; j++) {
@@ -94,7 +94,7 @@ void matrixQR(float* a, int rows, int cols, float* q, float* r) { //function nee
       
   }
 
-void matrixProduct(float* a, int rows_a, int cols_a, float* b, int rows_b, int cols_b, float* c){
+void matrixProduct(double* a, int rows_a, int cols_a, double* b, int rows_b, int cols_b, double* c){
  int index = 0;
  int rows  = rows_a;
  int cols  = cols_b;
@@ -118,7 +118,7 @@ void matrixProduct(float* a, int rows_a, int cols_a, float* b, int rows_b, int c
 
 }
 
-void matrixTimesVector(float* a, int rows, int cols, float* v, int rows_v, float* w){
+void matrixTimesVector(double* a, int rows, int cols, double* v, int rows_v, double* w){
 if(cols==rows_v){
    for( int row = 0; row < rows; row++){
                 w[row]=0.0;
@@ -133,7 +133,7 @@ if(cols==rows_v){
 
 }
 
-void matrixTranspose(float* a, int rows, int cols, float* aTranspose){
+void matrixTranspose(double* a, int rows, int cols, double* aTranspose){
  for( int row = 0; row < rows; row++){
 		for( int col = 0;col < cols;col++){
 
@@ -146,7 +146,7 @@ void matrixTranspose(float* a, int rows, int cols, float* aTranspose){
 
 
 
-void matrixBackSubstitution(float* R, int rows, int cols, float* d, float* p){
+void matrixBackSubstitution(double* R, int rows, int cols, double* d, double* p){
 //solve Rp=d for an uppertriangular matrix R
 // using back substitution
 
@@ -160,7 +160,7 @@ void matrixBackSubstitution(float* R, int rows, int cols, float* d, float* p){
 
 }
 
-void matrixUpperTriangularInverse(float* A, int rows, int cols, float* invA){
+void matrixUpperTriangularInverse(double* A, int rows, int cols, double* invA){
 // This code computes the inverse of a non-singular upper triangular 3x3 matrix.
 if(rows !=3 || cols !=3){
 	printf(" Only 3x3 full rank upper triangle matricies can be inverted with this code\n");
@@ -182,14 +182,14 @@ invA[1*cols+2]=-A[1*cols+2]*invA[2*cols+2]/A[1*cols+1];
 invA[0*cols+2]=-( A[0*cols+1]*invA[1*cols+2] + A[0*cols+2]*invA[2*cols+2] )/A[0*cols+0];
 }
 
-void matrixInternalCameraParameters(float* p,int rows,int cols,float* k){
+void matrixInternalCameraParameters(double* p,int rows,int cols,double* k){
 
-float pSub[9];
-float r[9];
-float rInv[9];
-float q[9];
-float qT[9];
-float b[9];
+double pSub[9];
+double r[9];
+double rInv[9];
+double q[9];
+double qT[9];
+double b[9];
 
 // extract a 3x3 sub matrix of p
 for (int row=0; row < rows; row++){

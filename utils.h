@@ -4,15 +4,15 @@
 
 using namespace std;
 
-void vectorPrint(float* u , int rows); 
+void vectorPrint(double* u , int rows); 
 
-void vectorScale(float* u, int rows, float alpha , float* v); 
+void vectorScale(double* u, int rows, double alpha , double* v); 
 
-float vectorDotProduct(float* u, float* v, int rowsU, int rowsV);
+double vectorDotProduct(double* u, double* v, int rowsU, int rowsV);
 
-void vectorSubtract(float* u, int rowsU, float* v, int rowsV, float* z);
+void vectorSubtract(double* u, int rowsU, double* v, int rowsV, double* z);
 
-float vectorNorm(float* u, int rowsU);
+double vectorNorm(double* u, int rowsU);
 
 bool checkRows(int rowsU, int rowsV);
 

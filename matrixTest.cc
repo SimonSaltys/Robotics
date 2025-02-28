@@ -20,19 +20,19 @@ bool areAlmostEqual(double a, double b, double epsilon = 1e-6) {
 int main() {
     cout << "Starting tests..." << endl;
 
-    float A[9] = {
+    double A[9] = {
         1.0, -1.0, 0.0, 
         1.0, 0.0, 1.0,
         0.0, -1.0, 1.0
     };
 
-    float q[9];
-    float r[9];
+    double q[9];
+    double r[9];
 
     matrixQR(A,3,3,q,r);
 
 
-    float correctQ[9] = {
+    double correctQ[9] = {
        1.0/sqrt(2.0), -1.0/sqrt(6.0), -1.0/sqrt(3.0),
        1.0/sqrt(2.0), 1.0/sqrt(6.0), 1.0/sqrt(3.0),
        0.0, -sqrt(2.0/3.0), 1.0/sqrt(3.0)

@@ -17,7 +17,7 @@ ifstream infile;
 string line;
 int value;
 int imageWidth,imageHeight,numPoints;
-float zc;
+double zc;
 
 //open file
 infile.open (fileName);
