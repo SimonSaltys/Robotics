@@ -33,7 +33,7 @@ void matrixExtractCol(float*a, int rows, int cols, int col, float* column){
 }
 
 
-void matrixQR(float* a, int rows, int cols, float* q, float* r) { //function needs to be finished (implement orthogonalization & normalization)
+void matrixQR(float* a, int rows, int cols, float* q, float* r) { 
   float numeratorTemp[rows];
   float dotProduct;
   float projection[rows];
