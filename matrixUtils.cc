@@ -67,7 +67,8 @@ void matrixQR(double* a, int rows, int cols, double* q, double* r) { //function 
         vectorScale(numeratorTemp,rows,1/norm,numeratorTemp);
         
         for(int row=0; row<rows; row++)
-          q[j+row*cols] = numeratorTemp[row];
+        q[row * cols + j] = numeratorTemp[row]; //changed
+
 
       } else {
         printf("Error");

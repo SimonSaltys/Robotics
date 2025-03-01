@@ -58,45 +58,51 @@ readData(inputFile, u, v, x ,y, z, zc);
 const int rows= 3*numPoints;
 const int cols = 12;
 
-double   m[rows*cols];
-double   mTranspose[cols*rows];
-double   a[cols*cols];
-double   c[rows];
-double   b[cols];
-double   d[cols];
-double   q[cols*cols];
-double   qT[cols*cols];
-double   r[cols*cols];
-double   p[cols];
-double   k[9] = {0.0};
-double   test[cols*cols];
+double* m = new double[rows * cols]();
+double* mTranspose = new double[cols * rows]();
+double* a = new double[cols * cols]();
+double* c = new double[rows]();
+double* b = new double[cols]();
+double* d = new double[cols]();
+double* q = new double[cols * cols]();
+double* qT = new double[cols * cols]();
+double* r = new double[cols * cols]();
+double* p = new double[cols]();
+double* test = new double[cols * cols]();
+double* k = new double[9]();
+
 
 // initialize the M matrix 
 int row=0;
 int col=0;
-for(int i=0;i<numPoints;i++){
-col=0;
-  for (int j=0;j<3;j++){
-     m[row*cols+col] = x[i];
-     col++;
-     m[row*cols+col] = y[i];
-     col++;
-     m[row*cols+col] = z[i];
-     col++;
-     m[row*cols+col] = 1.0;
-     col++;
+for (int i = 0; i < numPoints; i++) {
+    col = 0;
+    for (int j = 0; j < 3; j++) {
+        printf("\nPoint %d (Before Storing): x=%f, y=%f, z=%f", i, x[i], y[i], z[i]);
 
-     printf(" row %d",row);
-     for(int k = 0; k<cols;k++) printf(" %f",m[row*cols+k]);
-     printf("\n");
+        m[row * cols + col] = x[i];
+        col++;
+        m[row * cols + col] = y[i];
+        col++;
+        m[row * cols + col] = z[i];
+        col++;
+        m[row * cols + col] = 1.0;
+        col++;
 
-     row = row +1;
+        // Debugging output
+        printf("\nRow %d: ", row);
+        for (int k = 0; k < cols; k++) {
+            printf(" %f", m[row * cols + k]);
+        }
+        printf("\n");
 
-  }
-
+        row = row + 1;
+    }
 }
 
-//compute the right hand side vector b
+
+
+// compute the right hand side vector b
 row=0;
 for(int i=0;i<numPoints;i++){
  c[row]=u[i]*zc[i];
@@ -124,11 +130,12 @@ matrixTranspose(m,rows,cols,mTranspose);
 
 
 
+
 // compute matrix a = mT*m
 matrixProduct(mTranspose,cols,rows,m,rows,cols,a);
 printf("Matrix A \n");
 matrixPrint(a,cols,cols);
-exit(0);
+
 
 // compute QR decomposition of matrix A
 matrixQR(a,cols,cols,q,r);
@@ -167,6 +174,20 @@ matrixPrint(p,3,4);
 matrixInternalCameraParameters(p,3,4,k);
 printf("calibration matrix \n");
 matrixPrint(k,3,3);
+
+delete[] m;
+delete[] mTranspose;
+delete[] a;
+delete[] c;
+delete[] b;
+delete[] d;
+delete[] q;
+delete[] qT;
+delete[] r;
+delete[] p;
+delete[] test;
+delete[] k;
+
 
 
 return 0;
