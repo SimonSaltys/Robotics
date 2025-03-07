@@ -1,0 +1,9 @@
+{
+  "name": "depth-map",
+  "version": "1.0.0",
+  "dependencies": [
+    "opencv4"
+  ],
+  "default-features": [],
+  "builtin-baseline": "latest"
+}
