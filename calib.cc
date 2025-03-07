@@ -143,6 +143,15 @@ matrixQR(a,cols,cols,q,r);
 printf("Q matrix \n");
 matrixPrint(q,cols,cols);
 
+
+double* qTranspose = new double[cols * cols]();
+double* result = new double[cols * cols]();
+
+matrixTranspose(q,cols,cols,qTranspose);
+matrixProduct(q,cols,cols,qTranspose,cols,cols,result);
+matrixPrint(result,cols,cols);
+
+
 printf("R matrix \n");
 matrixPrint(r,cols,cols);
 

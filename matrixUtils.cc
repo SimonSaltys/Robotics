@@ -83,13 +83,13 @@ void matrixQR(double* a, int rows, int cols, double* q, double* r) { //function 
         r[currRow*cols+currCol] = 0.0;
     }
 
-    for(int currCol = 0; currCol < cols; currCol++) {
-      matrixExtractCol(a, rows, cols, currCol, aTemp);
-      for(int currRow=0; currRow < rows; currRow++)
+    for(int col = 0; col < cols; col++) {
+      matrixExtractCol(a, rows, cols, col, aTemp);
 
-        if (currRow <= currCol){
-          matrixExtractCol(q, rows, cols, currCol, qTemp);
-          r[currRow*cols+currCol] = vectorDotProduct(qTemp, aTemp, rows, rows);
+      for(int row=0; row < rows; row++) {
+          matrixExtractCol(q, rows, cols, row, qTemp);
+          r[row*cols+col] = vectorDotProduct(aTemp, qTemp, rows, rows);
+       
       }
     }
       
