@@ -120,16 +120,8 @@ printf("c right hand side vector \n");
 vectorPrint(c,rows);
 cout << "First Transpose" << endl;
 
-double backM[rows*cols];
 //compute m transpose mT
 matrixTranspose(m,rows,cols,mTranspose);
-// cout << "Second Transpose" << endl;
-// matrixTranspose(mTranspose, cols, rows, backM);
-// matrixPrint(backM,rows, cols);
-
-
-
-
 
 // compute matrix a = mT*m
 matrixProduct(mTranspose,cols,rows,m,rows,cols,a);
