@@ -39,7 +39,5 @@ leftImg   = readPPM(leftBW,0);
 rightImg  = readPPM(rightBW,0);
 
 // put your code here to do the stereo matching
-
-
 return 0;
 }
